@@ -7,7 +7,7 @@ import requests
 def number_of_subscribers(subreddit):
     """
     Queries the Reddit API and returns the number of subscribers
-    for a given subreddit. If an invalid subreddit is given,
+    for a given subreddit. If an invalid subreddit is given, 
     returns 0.
     """
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
@@ -21,3 +21,4 @@ def number_of_subscribers(subreddit):
             return 0
     except requests.RequestException:
         return 0
+
