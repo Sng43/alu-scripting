@@ -1,13 +1,26 @@
 #!/usr/bin/python3
 """
 3-count module
+
+This module contains a function to query the Reddit API, parse the titles
+of all hot articles in a given subreddit, and print a sorted count of
+specified keywords.
 """
 import requests
 
 def count_words(subreddit, word_list, after=None, word_count={}):
     """
-    Queries the Reddit API, parses the title of all hot articles,
+    Queries the Reddit API, parses the titles of all hot articles,
     and prints a sorted count of given keywords (case-insensitive).
+
+    Args:
+        subreddit (str): The name of the subreddit to query.
+        word_list (list): A list of keywords to count in the titles.
+        after (str, optional): The "after" parameter for pagination. Defaults to None.
+        word_count (dict, optional): A dictionary to store the counts of keywords. Defaults to {}.
+
+    Returns:
+        None
     """
     if not word_count:
         word_count = {word.lower(): 0 for word in word_list}
